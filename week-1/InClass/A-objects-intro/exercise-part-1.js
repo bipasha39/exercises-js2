@@ -16,4 +16,11 @@ var car = {
 };
 
 */
-
+let redmi8Pro = {
+    display: "IPS LCD capacitive touchscreen",
+    sim: "dual",
+    camera: "quad",
+    internalMemory: "128gb",
+    battery: "4000 mAh",
+}
+console.log(redmi8Pro);
