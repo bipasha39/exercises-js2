@@ -6,8 +6,10 @@
 let kitten = {
     furcolour: "orange",
     age: 23,
-    name:"Gilbert"
+
 };
+
+ kitten.name = "Gilbert";
 
 console.log(kitten.name);
 
