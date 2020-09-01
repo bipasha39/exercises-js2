@@ -4,21 +4,21 @@ The objects below have some syntax issues - try and fix them all!
 
 */
 
-var kitten = {
-    furcolour: "orange,"
-    age: 23
+let kitten = {
+    furcolour: "orange",
+    age: 23 
 };
 
-var laptop = { 
-    brand: "Lenovo"
+let laptop = { 
+    brand: "Lenovo",
     ram: "5GB"
 };
 
-var phone = {
+let phone = {
     operatingsystem: "iOS",
     hasStylus: true,
     megapixels: 12,
-    batteryLife: "24 hours"
+    batteryLife: "24hours"
 };
     console.log(kitten);
     console.log(laptop);

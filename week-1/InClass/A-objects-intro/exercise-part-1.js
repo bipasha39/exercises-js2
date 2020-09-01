@@ -22,5 +22,17 @@ let redmi8Pro = {
     camera: "quad",
     internalMemory: "128gb",
     battery: "4000 mAh",
+    hasEarPhone: false
 }
+
+let chair = {
+    numberOfLegs: "uncertain",
+    useofWoodAlways:false
+
+};
+ 
+let airPhone = {
+
+};
 console.log(redmi8Pro);
+console.log(chair);
