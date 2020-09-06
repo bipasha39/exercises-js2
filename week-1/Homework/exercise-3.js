@@ -8,7 +8,7 @@ getCoffee takes a coffee type in parameter and dispends the selected coffee
 only if the inserted amount is greater or equal than the price of the coffee!
 */
 
-let coffeeMachine = {
+  let coffeeMachine = {
     brand: "Super Coffee",
     prices: {
       cappuccino: 2.4,
@@ -16,10 +16,22 @@ let coffeeMachine = {
       flatWhite: 3.0,
     },
     insertedAmount: 0,
-    insertMoney: function (amount) {},
-    getCoffee: function (coffee) {},
+    insertMoney: function (amount) {
+      this.insertedAmount = amount;
+    },
+    getCoffee: function (coffee) {
+      if (this.insertedAmount >= this.prices[coffee]) {
+        return `Please take your ${coffee}.`;
+      } else {
+        return `Sorry you don't have enough money for a ${coffee}.`;
+      }
+    },
   };
-  
+
+
+
+
+
   /*
   DO NOT EDIT ANYTHING BELOW THIS LINE
   */
