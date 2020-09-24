@@ -18,7 +18,7 @@ BtnautoForward.addEventListener("click" ,goautoforward)
 BtnautoBackward.addEventListener("click" ,goautobackward)
 
 function goautoforward(){
-rotator = setInterval (goforward, 3000)
+rotator = setInterval (goforward, 3000) // first work with set interval later add rotation variable for gostop function
 autorotation = 1
 }
 // autoroation = 1 mean rotation is going ; autortation = 0 means no rotation
