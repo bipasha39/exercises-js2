@@ -1,53 +1,52 @@
-// Write your code here
-const img = document.getElementById('slideshow')
-const p = document.getElementById('contador')
-const timerInput = document.getElementById('timer')
+let images = ["img/football 1.jpg" ,"img/football2.jpg","img/football3.jpg","img/football4.jpg"] ;
+let img = document.querySelector(".slide img")
+img.setAttribute("src",images[0])
+let currentslide = 0
+let autorotation = 0
 
-const colorArray = ['cyan', 'pink', 'yellow']
-const imagesLength = 3;
-let intervalId = -1;
-let index = 0; // `img/bob${index}.jpeg`
+let BtnautoForward =document.querySelector("#autoforward")
+let BtnForward =document.querySelector("#forward")
+let Btnstop =document.querySelector("#stop")
+let BtnautoBackward =document.querySelector("#autobackward")
+let BtnBackward =document.querySelector("#backward")
 
-const nextImage = () => {
-    index++
-    if (index >= imagesLength) {
-        index = 0
-    }
-    img.src = `img/bob${index}.jpeg`
-    img.style.border = `10px solid ${colorArray[index]}`
-    p.innerText = index
+
+BtnForward.addEventListener("click",goforward )
+BtnBackward.addEventListener("click" ,gobackward)
+Btnstop.addEventListener("click" ,gostop) // work this function lastly
+BtnautoForward.addEventListener("click" ,goautoforward)
+BtnautoBackward.addEventListener("click" ,goautobackward)
+
+function goautoforward(){
+rotator = setInterval (goforward, 3000)
+autorotation = 1
 }
-const backImage = () => {
-    index--
-    if(index < 0) {
-        index = imagesLength - 1
-    }
-    img.src = `img/bob${index}.jpeg`
-    img.style.border = `10px solid #${index}${index}${index}`
-    p.innerText = index
+// autoroation = 1 mean rotation is going ; autortation = 0 means no rotation
+function gostop(){
+if (autorotation === 1){
+clearInterval(rotator) 
+autorotation = 0
 }
-
-function getImageTimer() {
-    let timer = -1;
-    if (timerInput.value <= 0) {
-        timer = 1
-    } else {
-        timer = timerInput.value
-    }
-    timer *= 1000
-    return timer
 }
 
-document.getElementById('auto-back').addEventListener('click', _event => {
-    clearInterval(intervalId)
-    intervalId = setInterval(() => backImage(), getImageTimer())
-})
+function goautobackward(){
+    rotator = setInterval (gobackward, 3000)
+    autorotation = 1
+    }
 
-document.getElementById('back').addEventListener('click', _event => backImage())
-document.getElementById('stop').addEventListener('click', _event => clearInterval(intervalId))
-document.getElementById('forward').addEventListener('click', _event => nextImage())
+function goforward(){
+currentslide = currentslide + 1;
+if (currentslide > 3){
+    currentslide =0;
+}
+img.setAttribute("src",images[currentslide])
+}
 
-document.getElementById('auto-forward').addEventListener('click', _event => {
-    clearInterval(intervalId)
-    intervalId = setInterval(() => nextImage(), getImageTimer())
-})
+function gobackward(){
+    currentslide = currentslide - 1;
+    if (currentslide <0){
+        currentslide =3;
+    } 
+   
+    img.setAttribute("src",images[currentslide])
+}
